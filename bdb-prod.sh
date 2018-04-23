@@ -35,7 +35,7 @@ function info {
 
 function warn {
   if [ "$VERBOSE" = true ]; then
-    echo "[WARNING] $1";
+    echo -e "\033[0;31m[WARNING] $1\033[0m";
   fi;
 }
 
@@ -106,7 +106,9 @@ title_block "Installing Easy-RSA.";
 # Check if a previous run already installed easy-rsa.
 
 if [ -d "$EASYRSA_DIR" ]; then
-  warn "Easy-RSA is already downloaded in this directory. Do you want to redo the configuration steps?";
+  warn "Easy-RSA is already downloaded in this directory.";
+  warn "Do you want to redo the configuration steps?";
+  line_empty;
   warn "THIS WILL REMOVE ALL PREVIOUS CONFIGURATIONS...";
   input "Redo configuration [y/n]" REDO_EASYRSA_CONF;
 else
@@ -149,7 +151,7 @@ if [ "$REDO_EASYRSA_CONF" = "y" ]; then
 
   input "Enter your 2-character country code (e.g. Belgium -> BE)" COUNTRY;
   input "Enter your province (e.g. Vlaams-Brabant)" PROVINCE;
-  input "Enter your city (e.g. Leuven)" PROVINCE;
+  input "Enter your city (e.g. Leuven)" CITY;
   input "Enter your organization (e.g. Blockchain Ltd.)" ORGANIZATION;
   input "Enter your organizational unit (e.g. Fincance)" ORGANIZATIONAL_UNIT;
   input "Enter your email (e.g. some.email@some.real.provider.com)" EMAIL;
@@ -188,13 +190,12 @@ title_block "Create a Self-Signed CA.";
 
 if [ "$VERBOSE" = true ]; then
   info "You will be asked to enter a PEM passphrase.";
-  info "Make sure to write securely store that PEM passphrase.";
-  info "If you lose it, you will nog be able to add or remove entities from";
+  info "Make sure to write down and securely store that PEM passphrase.";
+  info "If you lose it, you will not be able to add or remove entities from";
   info "your public-key infrastructure in the future.";
   info "";
-  info "You will be prompted to enter the Distinguished Name (DN)";
-  info "information for this CA. For each field, you can accept the default value";
-  info "by pressing ENTER.";
+  info "You will be prompted to enter the Distinguished Name (DN) information for";
+  info "this CA. For each field, you can accept the default value by pressing ENTER.";
   info "";
   warn "Don't accept the default value of OU (IT). Instead, enter the value 'ROOT-CA'.";
   input "Press enter to continue...";
