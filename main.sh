@@ -14,6 +14,7 @@ BDB_NODE_CA_DIR="bdb-node-ca";
 EASYRSA_URL="https://github.com/OpenVPN/easy-rsa/archive/3.0.1.tar.gz";
 EASYRSA_FILE="3.0.1.tar.gz";
 EASYRSA_DIR="easy-rsa-3.0.1";
+EASYRSA_CONF="easyrsa.conf";
 
 # Functions
 
