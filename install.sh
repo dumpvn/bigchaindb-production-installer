@@ -10,3 +10,7 @@ chmod +x ./main.sh;
 chmod +x ./self-signed-ca.sh;
 chmod +x ./server-cert-mongodb.sh;
 chmod +x ./client-cert-mongodb.sh;
+
+./self-signed-ca.sh &&
+./server-cert-mongodb.sh &&
+./client-cert-mongodb.sh;
