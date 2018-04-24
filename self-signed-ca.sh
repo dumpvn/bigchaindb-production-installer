@@ -1,73 +1,6 @@
 #!/bin/bash
 
-# This is a setup script that will automatically create a BigchainDB 
-# production node for you.
-# https://docs.bigchaindb.com/projects/server/en/v2.0.0a2/production-deployment-template/index.html
-#
-# Artus Vranken
-
-# ENV
-
-BDB_ROOT_DIR=$(pwd);
-VERBOSE=true;
-
-BREAK="================================================================================";
-
-BDB_NODE_CA_DIR="bdb-node-ca";
-
-EASYRSA_URL="https://github.com/OpenVPN/easy-rsa/archive/3.0.1.tar.gz";
-EASYRSA_FILE="3.0.1.tar.gz";
-EASYRSA_DIR="easy-rsa-3.0.1";
-
-# Functions
-
-function log {
-  if [ "$VERBOSE" = true ]; then
-    echo "[LOG] $1";
-  fi;
-}
-
-function info {
-  if [ "$VERBOSE" = true ]; then
-    echo "[INFO] $1";
-  fi;
-}
-
-function warn {
-  if [ "$VERBOSE" = true ]; then
-    echo -e "\033[0;31m[WARNING] $1\033[0m";
-  fi;
-}
-
-function input {
-  read -p "$1 " $2;
-}
-
-function line_break {
-  if [ "$VERBOSE" = true ]; then
-    echo "$BREAK";
-  fi;
-}
-
-function line_empty {
-  if [ "$VERBOSE" = true ]; then
-    echo;
-  fi;
-}
-
-function block_divider {
-  line_break;
-  line_empty;
-  line_break;
-}
-
-function title_block {
-  line_break;
-  line_empty;
-  echo "$1";
-  line_empty;
-  line_break;
-}
+source ./main.sh;
 
 # START
 
@@ -214,3 +147,7 @@ title_block "Generate a certificate revocation list. (CRL)";
 ./easyrsa gen-crl;
 
 # 5. Secure the CA.
+
+#
+# These are all optional manual steps. Go to the documentation for more information.
+#
