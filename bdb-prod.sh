@@ -204,3 +204,13 @@ fi;
 cd "$BDB_NODE_CA_DIR/$EASYRSA_DIR/easyrsa3";
 ./easyrsa init-pki;
 ./easyrsa build-ca;
+
+# 3. Create an Intermediate CA. (Not documented as of now)
+
+# 4. Generate a certificate revocation list. (CRL)
+
+title_block "Generate a certificate revocation list. (CRL)";
+
+./easyrsa gen-crl;
+
+# 5. Secure the CA.
