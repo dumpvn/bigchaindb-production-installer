@@ -1,5 +1,9 @@
 #!/bin/bash
 
+source ./main.sh;
+
+title_block "Configuring certificate paramets."
+
 input "Enter your 2-character country code (e.g. Belgium -> BE)" COUNTRY;
 input "Enter your province (e.g. Vlaams-Brabant)" PROVINCE;
 input "Enter your city (e.g. Leuven)" CITY;

@@ -7,11 +7,23 @@
 # Artus Vranken
 
 chmod +x ./main.sh;
+chmod +x ./intro.sh;
+chmod +x ./easy-rsa-questions.sh;
 chmod +x ./self-signed-ca.sh;
-chmod +x ./install-configure-easyrsa.sh;
+chmod +x ./install-configure-easy-rsa.sh;
 chmod +x ./server-cert-mongodb.sh;
 chmod +x ./client-cert-mongodb.sh;
 
+./intro.sh &&
+
+# Configure certificate variables.
+./easy-rsa-questions.sh &&
+
+# Create a CA.
 ./self-signed-ca.sh &&
+
+# Create a server cert for MongoDB.
 ./server-cert-mongodb.sh &&
+
+# Create a client cert for MongoDB.
 ./client-cert-mongodb.sh;

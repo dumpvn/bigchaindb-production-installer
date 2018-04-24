@@ -10,6 +10,8 @@ VERBOSE=true;
 BREAK="================================================================================";
 
 BDB_NODE_CA_DIR="bdb-node-ca";
+MONGODB_SERVER_CERT_DIR="member-cert";
+MONGODB_CLIENT_CERT_DIR="client-cert";
 
 EASYRSA_URL="https://github.com/OpenVPN/easy-rsa/archive/3.0.1.tar.gz";
 EASYRSA_FILE="3.0.1.tar.gz";
